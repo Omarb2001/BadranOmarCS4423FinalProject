@@ -24,7 +24,6 @@ public class PlayerMovementScript : MonoBehaviour
         flip();
 
         if(Input.GetButtonDown("Jump") && IsGrounded()){
-            Debug.Log("jumping!");
             player.velocity = new Vector2(player.velocity.x, jumpingPower);
         }
     }
