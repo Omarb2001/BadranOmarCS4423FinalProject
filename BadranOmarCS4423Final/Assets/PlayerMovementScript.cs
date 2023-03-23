@@ -35,15 +35,13 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private bool IsGrounded(){
-        return Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void flip(){
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f){
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            transform.Rotate(0,180,0);
         }
     }
 }
