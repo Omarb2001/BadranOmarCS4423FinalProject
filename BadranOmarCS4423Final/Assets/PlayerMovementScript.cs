@@ -12,11 +12,7 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private Rigidbody2D player;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     private bool IsGrounded(){
-        return Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void flip(){
