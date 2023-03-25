@@ -6,11 +6,12 @@ public class ShootingScript : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float range = 1f;
+    public float range = 0.25f;
     // Update is called once per frame
 
     public float fireRate = 0.25f;
     public float lastShootTime = 0.25f;
+
     void Update()
     {
         if (Input.GetButton("Fire1")){
@@ -19,8 +20,13 @@ public class ShootingScript : MonoBehaviour
     }
 
     void Shoot(){
+         if (Bullet.damage == 0){
+            Bullet.damage = 25f;
+         }
+         Debug.Log(Bullet.damage);
+         GameObject bullet;
          if(Time.time > lastShootTime + fireRate){
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 lastShootTime = Time.time;
                 Destroy(bullet, range);
             }

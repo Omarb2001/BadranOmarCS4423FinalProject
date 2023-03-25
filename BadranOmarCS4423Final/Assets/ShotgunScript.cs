@@ -26,6 +26,10 @@ public class ShotgunScript : MonoBehaviour
     }
 
     void Shoot(){
+        if (Bullet.damage == 0){
+            Bullet.damage = 20f;
+         }
+         Debug.Log(Bullet.damage);
         GameObject bul1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
         GameObject bul2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
         GameObject bul3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
