@@ -16,12 +16,27 @@ public class EnemyAIShootState : EnemyAIState
 
     public override void UpdateState()
     {
-        Vector3 pos = enemyAI.GetTarget().transform.position;
-        pos.x -= 3;
-        if(enemyAI.GetTarget() != null)
+        Vector3 pos = new Vector3();
+
+
+        Vector3 enemyPos = enemyAI.getPosition();
+        Player ply =  enemyAI.GetTarget();
+
+        if(ply != null){
+            pos = ply.transform.position;
+            if(enemyPos.x <= pos.x)
+                pos.x -= 3;
+            else
+                pos.x +=3;
+            
+            pos.y = enemyPos.y;
+            
             enemyAI.myEnemy.MoveToward(pos);
-        else 
+        }else{
             enemyAI.ChangeAIState(enemyAI.patrolState);
+        }
+
+        enemyAI.myEnemy.Shoot();
     }
 
 }

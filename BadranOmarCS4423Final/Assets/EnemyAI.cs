@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     public EnemyAIPatrolState patrolState{get; private set;}
     public EnemyAIShootState shootState{get; private set;}
 
+
     public void ChangeAIState(EnemyAIState newState ){
         currState = newState;
         currState.BeginStateBase();
@@ -53,11 +54,16 @@ public class EnemyAI : MonoBehaviour
 
         float diffInHeight = Mathf.Abs(y-enemyY);
         float rotation = transform.rotation.y;
-        Debug.Log(rotation);
-        if( diffInHeight < 0.1 && ((x < enemyX && Mathf.Abs(rotation) == 1) || (x > enemyX && Mathf.Abs(rotation) == 0))){
-            Debug.Log("it works!");
+        //Debug.Log(rotation);
+        if( diffInHeight < 0.1 && ((x < enemyX && Mathf.Abs(rotation) != 0) || (x > enemyX && Mathf.Abs(rotation) % 360 == 0))){
+            //Debug.Log("it works!");
             return true;
         }
         return false;
     }
+
+    public Vector3 getPosition(){
+        return transform.position;
+    }
+
 }
