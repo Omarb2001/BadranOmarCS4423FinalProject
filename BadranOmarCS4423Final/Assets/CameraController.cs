@@ -22,7 +22,8 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
 
-        
+        if (player == null)
+            player = FindObjectOfType<Player>();
 
         if (player.transform.position.x <= minX && player.transform.position.y <= minY){
             playerPosition = new Vector3(minX, minY, -10f);
