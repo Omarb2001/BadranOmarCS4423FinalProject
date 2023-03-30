@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
+    public Player player;
     public float offset;
     public float smoothing;
     private Vector3 playerPosition;
@@ -16,18 +16,13 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
 
 
-    void start(){
-        
+    void Awake(){
+        player = FindObjectOfType<Player>();
     }
     void FixedUpdate()
     {
 
-        if (player == null)
-            player = GameObject.Find("Player");
-            if(player == null)
-                player = GameObject.Find("Player2");
-                if(player == null)
-                    player = GameObject.Find("Player3");
+        
 
         if (player.transform.position.x <= minX && player.transform.position.y <= minY){
             playerPosition = new Vector3(minX, minY, -10f);

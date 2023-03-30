@@ -41,26 +41,11 @@ public class EnemyAI : MonoBehaviour
     public Player GetTarget(){
         float x = transform.position.x - targetPlayer.transform.position.x;
         
-        if(Mathf.Abs(x) < 8  && isFacingPlayer())
+        if(Mathf.Abs(x) < 8)
             return targetPlayer;
         return null;
     }
 
-    public bool isFacingPlayer(){
-        float x = targetPlayer.transform.position.x;
-        float y = targetPlayer.transform.position.y;
-        float enemyX = transform.position.x;
-        float enemyY = transform.position.y;
-
-        float diffInHeight = Mathf.Abs(y-enemyY);
-        float rotation = transform.rotation.y;
-        //Debug.Log(rotation);
-        if( diffInHeight < 0.1 && ((x < enemyX && Mathf.Abs(rotation) != 0) || (x > enemyX && Mathf.Abs(rotation) % 360 == 0))){
-            //Debug.Log("it works!");
-            return true;
-        }
-        return false;
-    }
 
     public Vector3 getPosition(){
         return transform.position;

@@ -17,9 +17,12 @@ public class EnemyAIPatrolState : EnemyAIState
         if(enemyAI.GetTarget() != null){
             enemyAI.ChangeAIState(enemyAI.shootState);
             return;
+        }else{
+            enemyAI.myEnemy.Patrol();
         }
-        enemyAI.myEnemy.MoveTowardOrigin();
+
     }
+
 
     public override void BeginState()
     {

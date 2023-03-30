@@ -5,17 +5,22 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float health = 100f;
-    public float speed = 2;
+    public float speed = 4f;
     public Rigidbody2D rb;
 
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float range = 0.25f;
+    public float range = 0.20f;
     // Update is called once per frame
     public float fireRate = 1f;
     public float lastShootTime = 0.25f;
 
+    public Transform patrol1;
+
+    public Transform patrol2;
+
     Vector3 Origin;
+    public int patrolDest = 0;
 
     
     public void TakeDamage (float damage){
@@ -34,52 +39,71 @@ public class Enemy : MonoBehaviour
     }
 
     void Die() {
+        LevelOneScript.numOfEnemies -=1;
         Destroy(gameObject);
     }
 
     
 
-    public void MoveToward(Vector3 position){
-        Move(position - transform.position);
-    }
+    public void Patrol(){
+        if(patrolDest == 0){
+            transform.position = Vector2.MoveTowards(transform.position, patrol1.position, speed * Time.deltaTime);
+            if(Vector2.Distance(transform.position, patrol1.position) < .2f || transform.position.x > patrol1.position.x){
+                transform.localScale = new Vector3(-4.1731f,4.1731f,4.1731f);
+                firePoint.localScale = new Vector3(-1,1,1);
+                patrolDest = 1;
+            }else{
+                transform.localScale = new Vector3(4.1731f,4.1731f,4.1731f);
+                firePoint.localScale = new Vector3(-1,1,1);
+            }
+        }
 
-    public void MoveTowardOrigin(){
-        Move(Origin - transform.position);
-    }
-
-    public void Move(Vector3 offset){
-        if(offset != new Vector3(2,0,0) && offset != new Vector3(-2,0,0)/*Vector3.zero*/){
-            offset.Normalize();
-            //offset *= Time.fixedDeltaTime;
-            //rb.MovePosition(transform.position + ((offset)*speed));
-            Vector3 vel = offset *= speed;
-            rb.velocity = vel;
-            //Debug.Log(offset);
-        }else{
-            //Debug.Log("stopping");
-            Stop();
-        //asc.ChangeAnimationState("Idle"); 
+        if(patrolDest == 1){
+            transform.position = Vector2.MoveTowards(transform.position, patrol2.position, speed * Time.deltaTime);
+            if(Vector2.Distance(transform.position, patrol2.position) < .2f || transform.position.x < patrol2.position.x){
+                transform.localScale = new Vector3(4.1731f,4.1731f,4.1731f);
+                firePoint.localScale = new Vector3(-1,1,1);
+                patrolDest = 0;
+            }else{
+                transform.localScale = new Vector3(-4.1731f,4.1731f,4.1731f);
+                firePoint.localScale = new Vector3(1,1,1);
+            }
         }
     }
 
-    public void Stop(){
-        rb.velocity = Vector3.zero;
+    public void Chase(Transform plyrtrans){
+        if (transform.position.x > plyrtrans.position.x && Vector2.Distance(transform.position, plyrtrans.position)>4){
+            transform.localScale = new Vector3(-4.1731f,4.1731f,4.1731f);
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+
+        if (transform.position.x < plyrtrans.position.x&& Vector2.Distance(transform.position, plyrtrans.position)>4){
+            transform.localScale = new Vector3( 4.1731f,4.1731f,4.1731f);
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+
+        if(Vector2.Distance(transform.position, plyrtrans.position)<6){
+                Shoot();
+        }
+        
+
     }
 
     public void Shoot(){
-         if (EnemyBullet.damage == 0){
-            EnemyBullet.damage = 25f;
+         if (EnemyBullet.enemyDamage == 0){
+            EnemyBullet.enemyDamage = 25f;
          }
          GameObject bullet;
+
+         
          if(Time.time > lastShootTime + fireRate){
                 bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                if(transform.localScale.x <0){
+                 bullet.transform.Rotate(0,180,0);
+                }   
                 lastShootTime = Time.time;
                 Destroy(bullet, range);
             }
-    }
-
-    public Vector3 GetOrigin(){
-        return Origin;
     }
 
 
