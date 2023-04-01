@@ -10,7 +10,6 @@ public class LevelOneScript : MonoBehaviour
     public Player player3Prefab;
 
     static Player player;
-    string plyr = "Player2";
     public static int numOfEnemies = 20;
     public static Transform spawnPoint;
 
@@ -19,9 +18,9 @@ public class LevelOneScript : MonoBehaviour
     void Awake()
     {
         spawnPoint = GameObject.Find("SpawnPoint").transform;
-        if(string.Equals(plyr,"Player1")){
+        if(MainMenuScript.playerName.Contains("Player1")){
             player = Instantiate(player1Prefab, spawnPoint.position, spawnPoint.rotation); 
-        }else if(string.Equals(plyr,"Player2")){
+        }else if(MainMenuScript.playerName.Contains("Player2")){
             player = Instantiate(player3Prefab, spawnPoint.position, spawnPoint.rotation); 
         } else {
             player = Instantiate(player3Prefab, spawnPoint.position, spawnPoint.rotation); 
