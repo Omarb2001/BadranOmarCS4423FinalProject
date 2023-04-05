@@ -10,9 +10,10 @@ public class LevelOneScript : MonoBehaviour
     public Player player3Prefab;
 
     static Player player;
-    public static int numOfEnemies = 20;
-    public static Transform spawnPoint;
+    
+    public static Transform spawnPoint; //probably adding a a checkpoint system.
 
+    
     
 
     void Awake()
@@ -21,7 +22,7 @@ public class LevelOneScript : MonoBehaviour
         if(MainMenuScript.playerName.Contains("Player1")){
             player = Instantiate(player1Prefab, spawnPoint.position, spawnPoint.rotation); 
         }else if(MainMenuScript.playerName.Contains("Player2")){
-            player = Instantiate(player3Prefab, spawnPoint.position, spawnPoint.rotation); 
+            player = Instantiate(player2Prefab, spawnPoint.position, spawnPoint.rotation); 
         } else {
             player = Instantiate(player3Prefab, spawnPoint.position, spawnPoint.rotation); 
         }
@@ -29,16 +30,13 @@ public class LevelOneScript : MonoBehaviour
         Debug.Log("starting Game");
     }
 
-   public static void EndGame(){
-            //something to end the game
-    }
-
+   
     
     
-    void Update()
+    void FixedUpdate()
     {
-        if(numOfEnemies<1){
-            EndGame();
+        if(MainMenuScript.numOfEnemies<1){
+            MainMenuScript.EndGame();
         }
     }
 }

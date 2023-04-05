@@ -5,14 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float health = 100f;
-    public float speed = 4f;
-    public Rigidbody2D rb;
+    public float speed = 5f;
+    //public Rigidbody2D rb;
 
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float range = 0.20f;
     // Update is called once per frame
-    public float fireRate = 1f;
+    public float fireRate = 1f * MainMenuScript.difficulty;
     public float lastShootTime = 0.25f;
 
     public Transform patrol1;
@@ -21,11 +21,14 @@ public class Enemy : MonoBehaviour
 
     Vector3 Origin;
     public int patrolDest = 0;
+    public bool isDead = false;
 
     
     public void TakeDamage (float damage){
         health -= damage;
-        if(health<=0){
+        if(health<=0 && !isDead){
+            isDead = true;
+            Destroy(gameObject);
             Die();
         }
     }
@@ -39,8 +42,7 @@ public class Enemy : MonoBehaviour
     }
 
     void Die() {
-        LevelOneScript.numOfEnemies -=1;
-        Destroy(gameObject);
+        MainMenuScript.EnemyDead();
     }
 
     
@@ -90,12 +92,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void Shoot(){
-         if (EnemyBullet.enemyDamage == 0){
-            EnemyBullet.enemyDamage = 25f;
-         }
          GameObject bullet;
-
-         
          if(Time.time > lastShootTime + fireRate){
                 bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 if(transform.localScale.x <0){

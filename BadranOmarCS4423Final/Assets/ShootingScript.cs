@@ -20,10 +20,6 @@ public class ShootingScript : MonoBehaviour
     }
 
     void Shoot(){
-         if (Bullet.damage == 0){
-            Bullet.damage = 25f;
-         }
-         Debug.Log(Bullet.damage);
          GameObject bullet;
          if(Time.time > lastShootTime + fireRate){
                 bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

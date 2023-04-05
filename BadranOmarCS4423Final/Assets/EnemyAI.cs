@@ -40,8 +40,9 @@ public class EnemyAI : MonoBehaviour
 
     public Player GetTarget(){
         float x = transform.position.x - targetPlayer.transform.position.x;
-        
-        if(Mathf.Abs(x) < 8)
+        float y = transform.position.y - targetPlayer.transform.position.y;
+
+        if(Mathf.Abs(x) < 8 && Mathf.Abs(y) < 1)
             return targetPlayer;
         return null;
     }

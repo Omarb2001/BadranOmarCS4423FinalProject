@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private float speed = 20f;
-    public static float damage = 0f;
     public Rigidbody2D blt;
     void Start()
     {
@@ -16,8 +15,9 @@ public class Bullet : MonoBehaviour
         //Animation here
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null){
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(MainMenuScript.damage);
         }
+        Debug.Log(MainMenuScript.damage);
         if(!hitInfo.name.Contains("Bullet") && !hitInfo.name.Contains("Player")){
             Destroy(gameObject);
         }

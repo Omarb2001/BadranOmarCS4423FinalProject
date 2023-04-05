@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int lives = 3;
+    
     public float health = 100;
 
 
@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     }
 
     void die(){
-        lives -=1;
-        if(lives <= 0){
+        MainMenuScript.lives -=1;
+        if(MainMenuScript.lives < 1){
             //GameOver
             Debug.Log("Game Over");
             GameOver();
@@ -30,8 +30,9 @@ public class Player : MonoBehaviour
     
      void GameOver(){
         //idk yet
+        health = 100;
         Debug.Log("Player destroyed");
-        LevelOneScript.EndGame();
+        MainMenuScript.EndGame();
         Destroy(gameObject);
     }
     void Respawn(){

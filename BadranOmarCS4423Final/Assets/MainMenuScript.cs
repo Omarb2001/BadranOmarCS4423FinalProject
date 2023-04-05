@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
 
-    public static float difficulty = 1;
+    public static float difficulty = 1f;
     public static string playerName = "Player1";
 
     public static string levelName = "LevelOneScript";
-
+    public static float enemyDamage = 25f;
+    public static float damage = 0f;
+    public static int lives = 3;
+    public static int numOfEnemies = 0;
 
     public void Play(){
         SceneManager.LoadScene("SelectMapScreen");
@@ -27,47 +30,72 @@ public class MainMenuScript : MonoBehaviour
 
     public void LevelOne(){
         levelName = "LevelOneScene";
+        numOfEnemies = 5;
         SceneManager.LoadScene("SelectCharacterScreen");
     }
 
     public void LevelTwo(){
         levelName = "LevelTwoScene";
+        numOfEnemies = 5;
         //SceneManager.LoadScene("SelectCharacterScreen");
     }
 
     public void LevelThree(){
         levelName = "LevelThreeScene";
+        numOfEnemies = 5;
         //SceneManager.LoadScene("SelectCharacterScreen");
     }
 
     public void PlayerOne(){
         playerName = "Player1";
+        damage = 25f;
         SceneManager.LoadScene("SelectDifficultyScreen");
     }
 
     public void PlayerTwo(){
         playerName = "Player2";
+        damage = 5f;
         SceneManager.LoadScene("SelectDifficultyScreen");
     }
 
     public void PlayerThree(){
         playerName = "Player3";
+        damage = 20f;
         SceneManager.LoadScene("SelectDifficultyScreen");
     }
 
     public void Easy(){
+        lives = 3;
         difficulty = 0.75f;
+        enemyDamage = 25f;
+        enemyDamage *= difficulty;
         SceneManager.LoadScene(levelName);
     }
 
     public void Normal(){
+        lives = 3;
         difficulty = 1f;
+        damage *= difficulty;
+        enemyDamage = 25f;
+        enemyDamage *= difficulty;
         SceneManager.LoadScene(levelName);
     }
 
     public void Hard(){
-        difficulty = 1.25f;
+        lives = 3;
+        difficulty = 1.35f;
+        damage *= difficulty;
+        enemyDamage = 25f;
+        enemyDamage *= difficulty;
         SceneManager.LoadScene(levelName);
+    }
+
+    public static void EndGame(){
+        SceneManager.LoadScene("MenuScreen");
+    }
+
+    public static void EnemyDead(){
+        numOfEnemies -=1;
     }
 
 }
