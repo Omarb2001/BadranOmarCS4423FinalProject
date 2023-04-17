@@ -8,7 +8,12 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D blt;
     void Start()
     {
-        blt.velocity = transform.right * speed;    
+        blt.velocity = transform.right * speed;
+            
+    }
+
+    void Update(){
+        Debug.Log("destroyed?");
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo){

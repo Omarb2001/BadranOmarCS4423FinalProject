@@ -167,7 +167,7 @@ TextureImporter:
         width: 38
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,7 +188,7 @@ TextureImporter:
         width: 38
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,7 +209,7 @@ TextureImporter:
         width: 38
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,7 +230,7 @@ TextureImporter:
         width: 36
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,6 +238,48 @@ TextureImporter:
       bones: []
       spriteID: 8ccf8dd8d63d1d84289fe1dec2ffcdc7
       internalID: -687868149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI002_6
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 786
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c41532b9d2a1943a4919534efca933
+      internalID: -1171582970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI002_7
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 818
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec63a54c4c4963642af1b37e10d372e2
+      internalID: -1094598775
       vertices: []
       indices: 
       edges: []
@@ -255,6 +297,8 @@ TextureImporter:
     nameFileIdTable:
       UI002_4: -1892024228
       UI002_5: -687868149
+      UI002_7: -1094598775
+      UI002_6: -1171582970
       UI002_0: -122984826
       UI002_3: 1955560228
       UI002_1: 1217397840

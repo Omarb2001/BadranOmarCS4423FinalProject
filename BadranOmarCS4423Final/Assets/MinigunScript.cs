@@ -20,7 +20,6 @@ public class MinigunScript : MonoBehaviour
     }
 
     void Shoot(){
-        
          Debug.Log(MainMenuScript.damage);
             if(Time.time > lastShootTime + fireRate){
             GameObject bul1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);

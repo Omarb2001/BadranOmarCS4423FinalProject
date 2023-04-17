@@ -45,12 +45,6 @@ public class CameraController : MonoBehaviour
             playerPosition = new Vector3(player.transform.position.x, player.transform.position.y, -10f);
         }
 
-        if (player.transform.rotation.y >= 0f){
-                playerPosition.x += offset;
-            }else{
-                playerPosition.x -= offset;
-            }
-
         transform.position = Vector3.Lerp(transform.position, playerPosition, smoothing * Time.deltaTime);
 
     }

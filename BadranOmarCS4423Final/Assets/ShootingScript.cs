@@ -15,6 +15,7 @@ public class ShootingScript : MonoBehaviour
     void Update()
     {
         if (Input.GetButton("Fire1")){
+            if(LevelOneScript.paused) return;
             Shoot();
         }
     }
