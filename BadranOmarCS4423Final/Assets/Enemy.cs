@@ -51,11 +51,11 @@ public class Enemy : MonoBehaviour
         if(patrolDest == 0){
             transform.position = Vector2.MoveTowards(transform.position, patrol1.position, speed * Time.deltaTime);
             if(Vector2.Distance(transform.position, patrol1.position) < .2f || transform.position.x > patrol1.position.x){
-                transform.localScale = new Vector3(-4.1731f,4.1731f,4.1731f);
+                transform.localScale = new Vector3(-1,1,1);
                 firePoint.localScale = new Vector3(-1,1,1);
                 patrolDest = 1;
             }else{
-                transform.localScale = new Vector3(4.1731f,4.1731f,4.1731f);
+                transform.localScale = new Vector3(1f,1,1);
                 firePoint.localScale = new Vector3(-1,1,1);
             }
         }
@@ -63,11 +63,11 @@ public class Enemy : MonoBehaviour
         if(patrolDest == 1){
             transform.position = Vector2.MoveTowards(transform.position, patrol2.position, speed * Time.deltaTime);
             if(Vector2.Distance(transform.position, patrol2.position) < .2f || transform.position.x < patrol2.position.x){
-                transform.localScale = new Vector3(4.1731f,4.1731f,4.1731f);
+                transform.localScale = new Vector3(1,1,1);
                 firePoint.localScale = new Vector3(-1,1,1);
                 patrolDest = 0;
             }else{
-                transform.localScale = new Vector3(-4.1731f,4.1731f,4.1731f);
+                transform.localScale = new Vector3(-1,1,1);
                 firePoint.localScale = new Vector3(1,1,1);
             }
         }
@@ -75,12 +75,12 @@ public class Enemy : MonoBehaviour
 
     public void Chase(Transform plyrtrans){
         if (transform.position.x > plyrtrans.position.x && Vector2.Distance(transform.position, plyrtrans.position)>4){
-            transform.localScale = new Vector3(-4.1731f,4.1731f,4.1731f);
+            transform.localScale = new Vector3(-1,1,1);
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
 
         if (transform.position.x < plyrtrans.position.x&& Vector2.Distance(transform.position, plyrtrans.position)>4){
-            transform.localScale = new Vector3( 4.1731f,4.1731f,4.1731f);
+            transform.localScale = new Vector3( 1,1,1);
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
 

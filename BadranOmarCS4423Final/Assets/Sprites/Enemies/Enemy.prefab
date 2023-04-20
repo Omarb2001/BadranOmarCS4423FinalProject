@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476738562010771973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0894, y: -0.0485, z: 0}
+  m_LocalPosition: {x: 0.52, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9153530180780736395}
   - component: {fileID: 4495012870323999102}
   - component: {fileID: 6011325797054944204}
+  - component: {fileID: 6783178847022891769}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 9153530180780732532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.660582, y: -16.094246, z: 9.145552}
-  m_LocalScale: {x: 4.1731, y: 4.1731, z: 4.1731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2853184045569935700}
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2002627043, guid: caaec7a4bfe7b7b43a7f1f9d1c4e8860, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e389695e5b772c44e85e43fc260e59c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   patrol1: {fileID: 0}
   patrol2: {fileID: 0}
   patrolDest: 0
+  isDead: 0
 --- !u!114 &4495012870323999102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,26 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.16999999, y: 0.23999998}
+  m_Offset: {x: 0.026209831, y: 0.02795744}
+  m_Size: {x: 0.5579052, y: 1.2534475}
   m_Direction: 0
+--- !u!95 &6783178847022891769
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153530180780732532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da7e22ea30c291e49a16487a73a8eb33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

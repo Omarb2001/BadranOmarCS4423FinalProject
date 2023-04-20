@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3220309656497575659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0077, y: -0.124, z: 0}
+  m_LocalPosition: {x: -0.165, y: -0.777, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3220309656526023642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.105, y: -0.0525, z: 0}
+  m_LocalPosition: {x: 0.573, y: -0.023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,6 +77,8 @@ GameObject:
   - component: {fileID: 3220309657581626648}
   - component: {fileID: 3220309657581626650}
   - component: {fileID: -6519209603851552969}
+  - component: {fileID: 7766437785565584629}
+  - component: {fileID: 8604094264702278350}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -93,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 3220309657581626641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.981, y: 5.499, z: 0}
-  m_LocalScale: {x: 3.9561713, y: 3.9561713, z: 3.9561713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3220309656497575660}
@@ -142,7 +144,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1638499598, guid: 524c31f3d8ae78f4b857f5f616ff0c05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76e5083c2224ad74f8b851c105613ccd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,8 +189,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.26}
+  m_Offset: {x: -0.15211612, y: -0.03106648}
+  m_Size: {x: 0.54548424, y: 1.4778349}
   m_Direction: 0
 --- !u!114 &3220309657581626648
 MonoBehaviour:
@@ -202,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3112c69306cf71e428d9e76e495018bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asc: {fileID: 8604094264702278350}
   player: {fileID: 3220309657581626642}
   groundCheck: {fileID: 3220309656497575660}
   groundLayer:
@@ -236,6 +239,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427404dba6ea632419a13202cb3f2f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
   health: 100
-  spawnPoint: {fileID: 0}
+--- !u!95 &7766437785565584629
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220309657581626641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8604094264702278350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220309657581626641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41adf8fe4dab5d94da1824f4f2e38eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7766437785565584629}
+  currentState: Idle

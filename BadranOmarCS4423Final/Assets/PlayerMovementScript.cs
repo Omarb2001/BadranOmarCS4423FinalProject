@@ -8,6 +8,7 @@ public class PlayerMovementScript : MonoBehaviour
     private float speed = 10f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
+    public AnimationState asc;
 
     [SerializeField] private Rigidbody2D player;
     [SerializeField] private Transform groundCheck;
@@ -26,7 +27,13 @@ public class PlayerMovementScript : MonoBehaviour
 
      void FixedUpdate() {
         player.velocity = new Vector2(horizontal * speed, player.velocity.y);
-
+        if(!IsGrounded()){
+            asc.ChangeAnimationState("Idle");
+        }else if(IsGrounded() && horizontal != 0){
+            asc.ChangeAnimationState("Walk");
+        }else{
+            asc.ChangeAnimationState("Idle");
+        }
         
     }
 
