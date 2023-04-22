@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     
     public float health = 100;
-
+    public bool checkpoint1 = false;
+    public bool checkpoint2 = false;
 
     public void TakeDamage(float damage){
         health -= damage;
@@ -37,7 +38,13 @@ public class Player : MonoBehaviour
     }
     void Respawn(){
             health = 100;
-            transform.position = LevelOneScript.spawnPoint.position;
+            if(checkpoint2){
+                transform.position = LevelOneScript.cp2.position;
+            }else if(checkpoint1){
+                transform.position = LevelOneScript.cp1.position;
+            }else{
+                transform.position = LevelOneScript.spawnPoint.position;
+            }
     }
 
     
@@ -46,6 +53,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Vector3.Distance(transform.position, LevelOneScript.cp1.position));
+        if(!checkpoint1 && (Vector3.Distance(transform.position, LevelOneScript.cp1.position) < 3)){
+            checkpoint1 = true;
+        }
+
+        if(!checkpoint2 && (Vector3.Distance(transform.position, LevelOneScript.cp2.position) < 3)){
+            checkpoint2 = true;
+        }
         
     }
 }

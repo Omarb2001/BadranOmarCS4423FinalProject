@@ -74,12 +74,12 @@ public class Enemy : MonoBehaviour
     }
 
     public void Chase(Transform plyrtrans){
-        if (transform.position.x > plyrtrans.position.x && Vector2.Distance(transform.position, plyrtrans.position)>4){
+        if (transform.position.x > plyrtrans.position.x && Vector2.Distance(transform.position, plyrtrans.position)>1){
             transform.localScale = new Vector3(-1,1,1);
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
 
-        if (transform.position.x < plyrtrans.position.x&& Vector2.Distance(transform.position, plyrtrans.position)>4){
+        if (transform.position.x < plyrtrans.position.x&& Vector2.Distance(transform.position, plyrtrans.position)>1){
             transform.localScale = new Vector3( 1,1,1);
             transform.position += Vector3.right * speed * Time.deltaTime;
         }

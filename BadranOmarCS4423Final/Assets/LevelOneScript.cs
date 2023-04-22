@@ -18,14 +18,16 @@ public class LevelOneScript : MonoBehaviour
     static Player player;
     public static bool paused = false;
     
-    public static Transform spawnPoint; //probably adding a a checkpoint system.
+    public static Transform spawnPoint;
 
-    
-    
+    public static Transform cp1;
+    public static Transform cp2;
 
     void Awake()
     {
         spawnPoint = GameObject.Find("SpawnPoint").transform;
+        cp1 = GameObject.Find("Checkpoint1").transform;
+        cp2 = GameObject.Find("Checkpoint2").transform;
         if(MainMenuScript.playerName.Contains("Player1")){
             player = Instantiate(player1Prefab, spawnPoint.position, spawnPoint.rotation); 
         }else if(MainMenuScript.playerName.Contains("Player2")){
