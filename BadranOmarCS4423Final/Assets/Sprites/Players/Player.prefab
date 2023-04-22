@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 8604094264702278350}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,9 +172,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 4
   m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 2
-  m_CollisionDetection: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &3220309657581626649
 CapsuleCollider2D:
@@ -189,8 +189,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15211612, y: -0.03106648}
-  m_Size: {x: 0.54548424, y: 1.4778349}
+  m_Offset: {x: -0.15211612, y: -0.045809507}
+  m_Size: {x: 0.54548424, y: 1.5073209}
   m_Direction: 0
 --- !u!114 &3220309657581626648
 MonoBehaviour:
@@ -210,6 +210,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &3220309657581626650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +243,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  checkpoint1: 0
+  checkpoint2: 0
+  spikeCheck: {fileID: 3220309656497575660}
+  spikeLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &7766437785565584629
 Animator:
   serializedVersion: 5

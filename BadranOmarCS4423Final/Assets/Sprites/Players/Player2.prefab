@@ -191,8 +191,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.051130295, y: -0.03290367}
-  m_Size: {x: 0.6061325, y: 1.3796902}
+  m_Offset: {x: -0.051130295, y: -0.047646523}
+  m_Size: {x: 0.6061325, y: 1.4091759}
   m_Direction: 0
 --- !u!114 &814478830523574385
 MonoBehaviour:
@@ -212,6 +212,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &596323995225317837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +247,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  checkpoint1: 0
+  checkpoint2: 0
+  spikeCheck: {fileID: 814478830840611892}
+  spikeLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &3979054961444295240
 Animator:
   serializedVersion: 5

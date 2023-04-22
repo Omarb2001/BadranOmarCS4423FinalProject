@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class TrapProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float speed = 20f;
+    public Rigidbody2D blt;
     void Start()
     {
-        
+        blt.velocity = transform.right * speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter2D(Collider2D hitInfo){
+        //Animation here
+        Player player = hitInfo.GetComponent<Player>();
+        if (player != null){
+            player.TakeDamage(100.0f);
+        }
+        if(!hitInfo.name.Contains("Enemy") && !hitInfo.name.Contains("EnemyBullet")){
+            Destroy(gameObject);
+        }
     }
+
 }

@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public bool checkpoint1 = false;
     public bool checkpoint2 = false;
 
+     [SerializeField] private Transform spikeCheck;
+    [SerializeField] private LayerMask spikeLayer;
+
     public void TakeDamage(float damage){
         health -= damage;
         Debug.Log("damage");
@@ -48,18 +51,24 @@ public class Player : MonoBehaviour
     }
 
     
+    private bool touchingSpikes(){
+        return Physics2D.OverlapCircle(spikeCheck.position, 0.5f, spikeLayer);
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, LevelOneScript.cp1.position));
         if(!checkpoint1 && (Vector3.Distance(transform.position, LevelOneScript.cp1.position) < 3)){
             checkpoint1 = true;
         }
 
         if(!checkpoint2 && (Vector3.Distance(transform.position, LevelOneScript.cp2.position) < 3)){
             checkpoint2 = true;
+        }
+
+        if(touchingSpikes()){
+            TakeDamage(100f);
         }
         
     }
