@@ -36,14 +36,14 @@ public class MainMenuScript : MonoBehaviour
 
     public void LevelTwo(){
         levelName = "LevelTwoScene";
-        numOfEnemies = 5;
-        //SceneManager.LoadScene("SelectCharacterScreen");
+        numOfEnemies = 6;
+        SceneManager.LoadScene("SelectCharacterScreen");
     }
 
     public void LevelThree(){
         levelName = "LevelThreeScene";
         numOfEnemies = 5;
-        //SceneManager.LoadScene("SelectCharacterScreen");
+        SceneManager.LoadScene("SelectCharacterScreen");
     }
 
     public void PlayerOne(){
