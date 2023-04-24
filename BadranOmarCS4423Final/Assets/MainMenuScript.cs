@@ -15,6 +15,10 @@ public class MainMenuScript : MonoBehaviour
     public static int lives = 3;
     public static int numOfEnemies = 0;
 
+
+    public void MainMenu(){
+        SceneManager.LoadScene("MenuScreen");
+    }
     public void Play(){
         SceneManager.LoadScene("SelectMapScreen");
     } //"play" button in Main Menu
@@ -23,9 +27,10 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     } //"Quit" Button in main Menu
 
-    public void Options(){
+    public void OptionsButton(){
+        Debug.Log("switching scenes");
         SceneManager.LoadScene("OptionsScreen");
-    } //"Options" Button that will exist in multiple scripts
+    } //"Options" Button
     
 
     public void LevelOne(){
@@ -42,7 +47,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void LevelThree(){
         levelName = "LevelThreeScene";
-        numOfEnemies = 5;
+        numOfEnemies = 6;
         SceneManager.LoadScene("SelectCharacterScreen");
     }
 
