@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     
     private bool touchingSpikes(){
-        return Physics2D.OverlapCircle(spikeCheck.position, 0.5f, spikeLayer);
+        return Physics2D.OverlapCircle(spikeCheck.position, 0.4f, spikeLayer);
     }
 
 
