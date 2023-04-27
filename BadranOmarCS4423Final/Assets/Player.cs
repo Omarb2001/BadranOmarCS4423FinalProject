@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Player : MonoBehaviour
 {
+    public AudioSource dead;
     
     public float health = 100;
     public bool checkpoint1 = false;
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     }
 
     void die(){
+        dead.Play();
         MainMenuScript.lives -=1;
         if(MainMenuScript.lives < 1){
             //GameOver

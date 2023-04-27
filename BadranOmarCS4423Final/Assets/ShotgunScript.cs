@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class ShotgunScript : MonoBehaviour
 {
+    public AudioSource shoot;
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
@@ -21,6 +22,7 @@ public class ShotgunScript : MonoBehaviour
     {   
         
         if (Input.GetButtonDown("Fire1") && Time.time > lastShootTime + fireRate){
+            shoot.Play();
             Shoot();
             lastShootTime = Time.time;
         }

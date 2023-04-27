@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+    public AudioSource jump;
     private float horizontal;
     private float speed = 10f;
     private float jumpingPower = 16f;
@@ -23,6 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
         flip();
 
         if(Input.GetButtonDown("Jump") && IsGrounded()){
+            jump.Play();
             gameObject.transform.SetParent(null);
             Debug.Log("horray");
             player.velocity = new Vector2(player.velocity.x, jumpingPower);

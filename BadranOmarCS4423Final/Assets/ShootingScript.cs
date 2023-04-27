@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ShootingScript : MonoBehaviour
 {
+    public AudioSource shoot;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float range = 0.25f;
@@ -23,6 +25,7 @@ public class ShootingScript : MonoBehaviour
     void Shoot(){
          GameObject bullet;
          if(Time.time > lastShootTime + fireRate){
+                shoot.Play();
                 bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 lastShootTime = Time.time;
                 Destroy(bullet, range);

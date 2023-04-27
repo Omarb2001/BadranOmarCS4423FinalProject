@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioSource shoot;    public AudioSource dead;
+    
     public float health = 100f;
     public float speed = 5f;
     //public Rigidbody2D rb;
@@ -27,8 +30,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage (float damage){
         health -= damage;
         if(health<=0 && !isDead){
+            dead.Play();
+            transform.position = new Vector3(1000,0,0);
             isDead = true;
-            Destroy(gameObject);
+            Destroy(gameObject, 1);
             Die();
         }
     }
@@ -94,6 +99,7 @@ public class Enemy : MonoBehaviour
     public void Shoot(){
          GameObject bullet;
          if(Time.time > lastShootTime + fireRate){
+                shoot.Play();
                 bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 if(transform.localScale.x <0){
                  bullet.transform.Rotate(0,180,0);

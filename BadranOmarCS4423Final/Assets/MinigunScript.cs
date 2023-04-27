@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MinigunScript : MonoBehaviour
 {
+    public AudioSource shoot;
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
@@ -22,6 +24,7 @@ public class MinigunScript : MonoBehaviour
     void Shoot(){
          Debug.Log(MainMenuScript.damage);
             if(Time.time > lastShootTime + fireRate){
+            shoot.Play();
             GameObject bul1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
             GameObject bul2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
             GameObject bul3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
