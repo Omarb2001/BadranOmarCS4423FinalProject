@@ -96,7 +96,11 @@ public class MainMenuScript : MonoBehaviour
     }
 
     public static void EndGame(){
-        SceneManager.LoadScene("MenuScreen");
+        if (numOfEnemies <1){
+            SceneManager.LoadScene("YouWin");
+        }else{
+            SceneManager.LoadScene("YouLose");
+        }
     }
 
     public static void EnemyDead(){

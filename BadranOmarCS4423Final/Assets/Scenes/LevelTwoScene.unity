@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388826}
   - component: {fileID: 1388827}
+  - component: {fileID: 1388828}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 1388825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 622.4564, y: 150.37729, z: -8}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1075358085}
@@ -180,6 +181,21 @@ MonoBehaviour:
   - {fileID: 1925583301}
   - {fileID: 2089946113}
   enemiesRemaining: {fileID: 1599221397}
+--- !u!114 &1388828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e8b6c1cd7f95f4e999bc04a1cfdaae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 4701330410302211267, guid: d1ea78975cff6d142837e3f8761c3c96, type: 3}
+  amountToPool: 25
 --- !u!1001 &29813136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1500,6 +1516,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300008, guid: 1b63bdb5079a21140a015e2f681f08bc, type: 3}
+    - target: {fileID: 3969696204003045812, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
 --- !u!4 &632514588 stripped
@@ -11193,6 +11213,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300008, guid: 1b63bdb5079a21140a015e2f681f08bc, type: 3}
+    - target: {fileID: 3969696204003045812, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
 --- !u!4 &1720146134 stripped
@@ -11888,6 +11912,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 505995264}
     m_Modifications:
+    - target: {fileID: 4219267125887429689, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1388827}
+    - target: {fileID: 4219267125887429689, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6048736325929050307, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

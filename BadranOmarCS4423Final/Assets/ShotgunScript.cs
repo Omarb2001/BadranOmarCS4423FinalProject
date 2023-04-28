@@ -30,16 +30,41 @@ public class ShotgunScript : MonoBehaviour
 
     void Shoot(){
         
-        GameObject bul1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-        GameObject bul2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-        GameObject bul3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
-        GameObject bul4 = Instantiate(bulletPrefab, firePoint4.position, firePoint4.rotation);
-        GameObject bul5 = Instantiate(bulletPrefab, firePoint5.position, firePoint5.rotation);
-        Destroy(bul1, range);
-        Destroy(bul2, range);
-        Destroy(bul3, range);
-        Destroy(bul4, range);
-        Destroy(bul5, range);
+        GameObject bul1 = ObjectPool.SharedInstance.GetPooledObject();
+        if (bul1 != null) {
+            bul1.transform.position = firePoint1.transform.position;
+            bul1.transform.rotation = firePoint1.transform.rotation;
+            bul1.SetActive(true);
+        }
+        GameObject bul2 = ObjectPool.SharedInstance.GetPooledObject();
+        if (bul2 != null) {
+            bul2.transform.position = firePoint2.transform.position;
+            bul2.transform.rotation = firePoint2.transform.rotation;
+            bul2.SetActive(true);
+        }
+        GameObject bul3 = ObjectPool.SharedInstance.GetPooledObject();
+        if (bul3 != null) {
+            bul3.transform.position = firePoint3.transform.position;
+            bul3.transform.rotation = firePoint3.transform.rotation;
+            bul3.SetActive(true);
+        }
+        GameObject bul4 = ObjectPool.SharedInstance.GetPooledObject();
+        if (bul4 != null) {
+            bul4.transform.position = firePoint4.transform.position;
+            bul4.transform.rotation = firePoint4.transform.rotation;
+            bul4.SetActive(true);
+        }
+        GameObject bul5 = ObjectPool.SharedInstance.GetPooledObject();
+        if (bul5 != null) {
+            bul5.transform.position = firePoint5.transform.position;
+            bul5.transform.rotation = firePoint5.transform.rotation;
+            bul5.SetActive(true);
+        }
+        //Destroy(bul1, range);
+        //Destroy(bul2, range);
+        //Destroy(bul3, range);
+        //Destroy(bul4, range);
+        //Destroy(bul5, range);
 
 
     }

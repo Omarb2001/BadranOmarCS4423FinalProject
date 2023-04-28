@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 59203094172093684, guid: 93ddf78d73014fb4291145071e2aa704, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.2
+      value: 22.02
       objectReference: {fileID: 0}
     - target: {fileID: 59203094172093684, guid: 93ddf78d73014fb4291145071e2aa704, type: 3}
       propertyPath: m_LocalPosition.z
@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 59203094172093684, guid: 93ddf78d73014fb4291145071e2aa704, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.184
+      value: 21.97
       objectReference: {fileID: 0}
     - target: {fileID: 59203094172093684, guid: 93ddf78d73014fb4291145071e2aa704, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25625,7 +25625,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 834410036}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -26605,6 +26605,7 @@ GameObject:
   - component: {fileID: 1142558349}
   - component: {fileID: 1142558350}
   - component: {fileID: 1142558351}
+  - component: {fileID: 1142558352}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -26642,6 +26643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e870452df12f394d90a9a9f2ce53995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shoot: {fileID: 0}
+  dead: {fileID: 0}
   health: 100
   speed: 2
   firePoint: {fileID: 0}
@@ -26675,6 +26678,21 @@ MonoBehaviour:
   - {fileID: 1028241517}
   - {fileID: 1072555399}
   enemiesRemaining: {fileID: 1843625176}
+--- !u!114 &1142558352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142558348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e8b6c1cd7f95f4e999bc04a1cfdaae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 4701330410302211267, guid: d1ea78975cff6d142837e3f8761c3c96, type: 3}
+  amountToPool: 25
 --- !u!114 &1158887010 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1356792211641683521, guid: 3e0530f4c7136d0459f4511d029e6bb1, type: 3}
@@ -27264,7 +27282,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1263123731}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -27334,7 +27352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 59203094172093684, guid: 93ddf78d73014fb4291145071e2aa704, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.152
+      value: 22.03
       objectReference: {fileID: 0}
     - target: {fileID: 59203094172093684, guid: 93ddf78d73014fb4291145071e2aa704, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29422,6 +29440,10 @@ PrefabInstance:
       propertyPath: down
       value: 
       objectReference: {fileID: 1137150549}
+    - target: {fileID: 3969696204003045812, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
 --- !u!1001 &6048736326960248119
@@ -29431,6 +29453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 850741083}
     m_Modifications:
+    - target: {fileID: 4219267125887429689, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1142558351}
     - target: {fileID: 6048736325929050307, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -29518,6 +29544,10 @@ PrefabInstance:
     - target: {fileID: 6048736325929050308, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048736325929050308, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6048736327050027898, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

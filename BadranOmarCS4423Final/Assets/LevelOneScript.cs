@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelOneScript : MonoBehaviour
 {
@@ -41,10 +42,17 @@ public class LevelOneScript : MonoBehaviour
         enemiesRemaining.text = MainMenuScript.numOfEnemies + " enemies remaining";
         Live.active = true;
         Pause.active = false;
+        paused = false;
         Debug.Log("starting Game");
+        Time.timeScale = 1;
     }
 
-   
+    void Start(){
+        Live.active = true;
+        Pause.active = false;
+        paused = false;
+        Time.timeScale = 1;
+    }
     
     
     void FixedUpdate()
@@ -70,6 +78,17 @@ public class LevelOneScript : MonoBehaviour
         Time.timeScale = 0;
         Live.active = false;
         Pause.active = true;
+    }
+
+    public void QuitToMenu(){
+        MainMenuScript.difficulty = 1f;
+        MainMenuScript.playerName = "Player1";
+        MainMenuScript.levelName = "LevelOneScript";
+        MainMenuScript.enemyDamage = 25f;
+        MainMenuScript.damage = 0f;
+        MainMenuScript.lives = 3;
+        MainMenuScript.numOfEnemies = 0;
+        SceneManager.LoadScene("MenuScreen");
     }
 
     public void resume(){

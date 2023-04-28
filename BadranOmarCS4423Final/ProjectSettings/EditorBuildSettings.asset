@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OptionsScreen.unity
     guid: 6d7aa625832d9c949a951a8626155b28
+  - enabled: 1
+    path: Assets/Scenes/YouLose.unity
+    guid: ae53790c06740834d97573f9b2aef0a7
+  - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: 720dc80d6f42c1e4d85686415ab3e362
   m_configObjects: {}

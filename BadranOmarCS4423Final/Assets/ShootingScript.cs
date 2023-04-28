@@ -23,12 +23,19 @@ public class ShootingScript : MonoBehaviour
     }
 
     void Shoot(){
-         GameObject bullet;
+         //GameObject bullet;
          if(Time.time > lastShootTime + fireRate){
                 shoot.Play();
-                bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                //bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                GameObject bullet = ObjectPool.SharedInstance.GetPooledObject(); 
+                if (bullet != null) {
+                bullet.transform.position = firePoint.transform.position;
+                bullet.transform.rotation = firePoint.transform.rotation;
+                bullet.SetActive(true);
+                }
+                
                 lastShootTime = Time.time;
-                Destroy(bullet, range);
+                //Destroy(bullet, range);
             }
     }
 }

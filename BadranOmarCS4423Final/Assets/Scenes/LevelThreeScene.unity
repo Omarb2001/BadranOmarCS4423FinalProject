@@ -1658,6 +1658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 718100579}
   - component: {fileID: 718100578}
+  - component: {fileID: 718100580}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1705,6 +1706,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718100580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718100577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e8b6c1cd7f95f4e999bc04a1cfdaae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 4701330410302211267, guid: d1ea78975cff6d142837e3f8761c3c96, type: 3}
+  amountToPool: 25
 --- !u!1001 &727620222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2895,6 +2911,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 22090082}
     m_Modifications:
+    - target: {fileID: 4219267125887429689, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 718100578}
+    - target: {fileID: 4219267125887429689, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6048736325929050307, guid: 8437c9404eb3c7c4f86184deb2fed0e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3965,6 +3989,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300006, guid: 9dc18d9dbefddc44ebab3f88ec5da09c, type: 3}
+    - target: {fileID: 3969696204003045812, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
 --- !u!4 &1601626372 stripped
@@ -4161,7 +4189,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1619327936}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10087,6 +10115,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300006, guid: 9dc18d9dbefddc44ebab3f88ec5da09c, type: 3}
+    - target: {fileID: 3969696204003045812, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3cb6cf34559d74244a772aadcbd33806, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3572e16dec57404fac75d67a5629edf, type: 3}
 --- !u!4 &1784061246 stripped

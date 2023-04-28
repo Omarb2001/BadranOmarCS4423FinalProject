@@ -22,7 +22,8 @@ public class PlayerMovementScript : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        flip();
+        if (LevelOneScript.paused == false)
+            flip();
 
         if(Input.GetButtonDown("Jump") && IsGrounded()){
             jump.Play();
